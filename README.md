@@ -15,7 +15,7 @@ This example is meant to be run on Docker Swarm.
 ```
 docker swarm init
 
-export DOMAIN=mydomain.com
+export DOMAIN=example.mydomain.com
 
 bash run.sh
 ```
