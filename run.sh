@@ -15,4 +15,6 @@ set -a
 source .env
 set +a
 
+sed -i "s/XXDOMAINXX/${DOMAIN}/g" traefik.yml
+
 docker stack deploy -c docker-compose.yml infra
