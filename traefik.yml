@@ -21,14 +21,14 @@ providers:
     exposedByDefault: false
     swarmMode: true
     watch: true
-    swarmModeRefreshSeconds: 15
+    swarmModeRefreshSeconds: 10
     network: "traefik"
 
 certificatesResolvers:
   letsencrypt:
     acme:
       #caServer: https://acme-staging-v02.api.letsencrypt.org/directory
-      email: acme@mydomain.com
+      email: acme@XXDOMAINXX.com
       storage: /acme/acme.json
       httpChallenge:
         entryPoint: web
