@@ -1,0 +1,34 @@
+entryPoints:
+  web:
+    address: ":80"
+    http:
+      tls:
+        certResolver: letsencrypt
+
+accessLog: {}
+
+log:
+  level: DEBUG
+
+api:
+  insecure: true
+  dashboard: true
+  debug: true
+
+providers:
+
+  docker:
+    exposedByDefault: false
+    swarmMode: true
+    watch: true
+    swarmModeRefreshSeconds: 15
+    network: "traefik"
+
+certificatesResolvers:
+  letsencrypt:
+    acme:
+      #caServer: https://acme-staging-v02.api.letsencrypt.org/directory
+      email: acme@mydomain.com
+      storage: /acme/acme.json
+      httpChallenge:
+        entryPoint: web
