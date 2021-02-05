@@ -19,3 +19,5 @@ export DOMAIN=mydomain.com
 
 bash run.sh
 ```
+
+Traefik Dashboard is available at via swarm mesh at `:8080`
