@@ -1,0 +1,33 @@
+version: '3.7'
+
+services:
+
+  bla:
+    networks:
+      - traefik        
+    image: nginx:alpine
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.bla.rule=Host(`${DOMAIN}`)"
+        - "traefik.http.services.bla.loadbalancer.server.port=80"
+        #- "traefik.http.routers.bla.tls.certresolver=letsencrypt"
+        #- "traefik.http.routers.bla.tls=true"
+        #- "traefik.http.routers.bla.entrypoints=web"
+
+  acme:
+    image: traefik:latest
+    ports:
+    - "80:80"
+    - "8080:8080"
+    networks:
+      - traefik
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - $PWD/traefik.yml:/etc/traefik/traefik.yml
+      - $PWD/acme:/acme
+          
+networks:
+
+  traefik:
+    external: true
