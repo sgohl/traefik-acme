@@ -2,26 +2,21 @@ version: '3.7'
 
 services:
 
-  bla:
+  test:
     networks:
       - traefik        
     image: nginx:alpine
-    ports:
-      - "88:80"
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.bla.rule=Host(`${DOMAIN}`)"
-        - "traefik.http.services.bla.loadbalancer.server.port=80"
-        - "traefik.http.routers.bla.tls.certresolver=letsencrypt"
-        - "traefik.http.routers.bla.tls=true"
-        - "traefik.http.routers.bla.entrypoints=websecure"
+        - "traefik.http.routers.test.rule=Host(`${DOMAIN}`)"
+        - "traefik.http.services.test.loadbalancer.server.port=80"
+        - "traefik.http.routers.test.tls.certresolver=letsencrypt"
 
   acme:
     image: traefik:latest
     ports:
-    - "80:80"
-    - "443:443"    
+    - "80:80"  
     - "8080:8080"
     networks:
       - traefik
