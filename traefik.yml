@@ -29,10 +29,3 @@ certificatesResolvers:
       storage: /acme/acme.json
       httpChallenge:
         entryPoint: web
-
-tls:
-  options:
-    default:
-      minVersion: VersionTLS12
-  stores:
-    default:
