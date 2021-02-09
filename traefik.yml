@@ -1,14 +1,6 @@
 entryPoints:
-  websecure:
-    address: ":443"
-    http:
-      tls:
-        certResolver: letsencrypt
   web:
     address: ":80"
-    http:
-      tls:
-        certResolver: letsencrypt
 
 accessLog: {}
 
