@@ -1,6 +1,9 @@
 entryPoints:
   web:
     address: ":80"
+    http:
+      tls:
+        certResolver: letsencrypt
 
 accessLog: {}
 
