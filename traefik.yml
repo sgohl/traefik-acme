@@ -1,4 +1,6 @@
 entryPoints:
+  acme:
+    address: ":82"
   web:
     address: ":80"
     http:
@@ -31,4 +33,4 @@ certificatesResolvers:
       email: acme@XXDOMAINXX.com
       storage: /acme/acme.json
       httpChallenge:
-        entryPoint: web
+        entryPoint: acme
